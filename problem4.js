@@ -5,26 +5,36 @@ function pal(num){
     }
     var one = parseInt(start.join(''));
     //return one.toString().split('').reverse();
+    //return one;
    
     for (var j = one; j > 0; j--){
+        //return j;
         for (var k = j; k > 0; k--){
             var two = j*k;
+            //return two;
             var count  = 0;
-            //return two.toString().split('').reverse();
-            for (var l = 0; l < two.toString().length; l++){
-                
-                if ((two).toString().split('')[l] == (two).toString().split('')[two.toString().length - (l + 1)]){
+            var forwards = two.toString().split('');
+            //return forwards[0];
+            var backwards =  two.toString().split('').reverse();
+            //return backwards;
+            var length = two.toString().length;
+            //return length;
+            for (var l = 0; l < Math.floor(length/2); l++){
+                //return forwards[l];
+                if (forwards[l] == backwards[l]){
                     count++;
                 }
-               
+                if (count == Math.floor(length/2)){
+                    return two;
             }
             
-            }
-            if (count == (two.toString().length-1)){
-                return two;
+            
+        }
+            
+            
         }
     }
 }
 
 //pal(2);
-console.log(pal(4));
+console.log(pal(3));
