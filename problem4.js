@@ -6,11 +6,12 @@ function pal(num){
     var one = parseInt(start.join(''));
     //return one.toString().split('').reverse();
     //return one;
+    var answer = 0;
    
     for (var j = one; j > 0; j--){
         //return j;
         for (var k = j; k > 0; k--){
-            var two = j*k;
+             var two = j*k;
             //return two;
             var count  = 0;
             var forwards = two.toString().split('');
@@ -24,8 +25,8 @@ function pal(num){
                 if (forwards[l] == backwards[l]){
                     count++;
                 }
-                if (count == Math.floor(length/2)){
-                    return two;
+                if (count == Math.floor(length/2) && two > answer){
+                    answer = two;
             }
             
             
@@ -34,6 +35,7 @@ function pal(num){
             
         }
     }
+    return answer;
 }
 
 //pal(2);
