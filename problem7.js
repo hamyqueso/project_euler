@@ -15,7 +15,7 @@ function nthPrime(num){
     var target = 1;
     var current = 2;
     while (target != num){
-        if (current = 2){
+        if (current == 2){
             current++;
         } else{
             current+=2;
@@ -29,4 +29,4 @@ function nthPrime(num){
     return current;
 }
 
-console.log(nthPrime(5));
+console.log(nthPrime(10001));
