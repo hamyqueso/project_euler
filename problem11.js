@@ -25,4 +25,31 @@ var arr2= [];
 for (var i =0; i < 20; i++){
     arr2[i] = arr[i].split(' ');
 }
+
+for(var j= 0; j< 20; j++){
+    for(var k = 0; k < 20; k++){
+        arr2[j][k] = parseInt(arr2[j][k]);
+    }
+}
+
+var answer = 1;
+var down = 1;
+var right = 1;
+var diag = 1;
+
+for (i = 0; i < 20; i++){
+    for (j =0; j < 20; j++){
+        //down
+        for (k = i; k < i+4; k++){
+            down*=arr2[k][j];
+        }
+
+        //right
+        for (k = j; k < j+4; k++){
+            right*=arr2[i][k];
+        }
+
+        //diag
+    }
+}
 console.log(arr2);
