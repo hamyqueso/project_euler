@@ -35,14 +35,16 @@ for (var j = 0; j < 20; j++) {
 var answer = 1;
 var down = 1;
 var right = 1;
-var diag = 1;
+var diagDown = 1;
+var diagUp = 1;
+
 
 for (i = 0; i < 20; i++) {
     for (j = 0; j < 20; j++) {
-
         down = 1;
         right = 1;
-        diag = 1;
+        diagDown = 1;
+        diagUp = 1;
         //down
         for (k = 0; k < 4; k++) {
             if (k+i >= 20) break;            
@@ -55,15 +57,24 @@ for (i = 0; i < 20; i++) {
             right *= arr2[i][j+k];
         }
 
-        //diag
+        //diagDown
         for(k = 0; k < 4; k++){
             if(k+i >= 20 || k+j >=20) break;
-            diag*= arr2[i+k][j+k];
+            diagDown*= arr2[i+k][j+k];
         }
 
+        //diagUp
+        for(k = 0; k < 4; k++){
+            if(i-k < 0 || k+j >=20) break;
+            diagUp*= arr2[i-k][j+k];
+        }
+
+      
         if(down > answer) answer = down;
         if(right > answer) answer = right;
-        if(diag > answer) answer = diag;
+        if(diagDown > answer) answer = diagDown;
+        if(diagUp > answer) answer = diagUp;
+        
     }
 }
 console.log(answer);
