@@ -39,17 +39,31 @@ var diag = 1;
 
 for (i = 0; i < 20; i++) {
     for (j = 0; j < 20; j++) {
+
+        down = 1;
+        right = 1;
+        diag = 1;
         //down
-        for (k = i; k < i + 4; k++) {
-            down *= arr2[k][j];
+        for (k = 0; k < 4; k++) {
+            if (k+i >= 20) break;            
+            down *= arr2[i+k][j];
         }
 
         //right
-        for (k = j; k < j + 4; k++) {
-            right *= arr2[i][k];
+        for (k = 0; k < 4; k++) {
+            if (k+j >= 20) break;
+            right *= arr2[i][j+k];
         }
 
         //diag
+        for(k = 0; k < 4; k++){
+            if(k+i >= 20 || k+j >=20) break;
+            diag*= arr2[i+k][j+k];
+        }
+
+        if(down > answer) answer = down;
+        if(right > answer) answer = right;
+        if(diag > answer) answer = diag;
     }
 }
-console.log(arr2);
+console.log(answer);
