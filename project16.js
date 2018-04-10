@@ -6,7 +6,7 @@ function power(num){
     for (var i =0; i < str.length; i++){
         answer+=parseInt(str[i]);
     }
-    return answer;
+    return str;
 }
 
-console.log(power(10));
+console.log(power(100));
